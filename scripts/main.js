@@ -39,7 +39,7 @@ function updateNumberWithResponse(num1, response_text){
 
     // update label with it
     var label1 = document.getElementById('result-line-1');
-    label1.innerHTML = "Generated Number: " + response_json['data'];
+    //label1.innerHTML = "We prefer this number: " + response_json['data'] + "\n";
     var num2 = response_json['data'];
     console.log("num2: " + num2);
     // and make nw call to numbers api
@@ -91,9 +91,9 @@ function updateCatFact(response_text) {
   var cat_fact = response_json["fact"];
   console.log("cat fact: " + cat_fact);
 
-
   label_item = document.createElement("label"); // "label" is a class name
   label_item.setAttribute("id", "dynamic-label-1");
+  label_item.setAttribute("style", "text-align: center");
   var item_text = document.createTextNode(cat_fact);
   label_item.appendChild(item_text);
 
