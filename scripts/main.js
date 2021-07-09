@@ -38,7 +38,9 @@ function updateNumberWithResponse(num1, response_text){
     var response_json = JSON.parse(response_text);
 
     // update label with it
-    var label1 = document.getElementById('result-line-1');
+    var box = document.getElementById('number1');
+    box.setAttribute("style", "color: teal");
+    //box.setAttribute("style", "color: white");
     //label1.innerHTML = "We prefer this number: " + response_json['data'] + "\n";
     var num2 = response_json['data'];
     console.log("num2: " + num2);
@@ -67,25 +69,6 @@ function makeNetworkCallToCatApi(num2){
 } // end of makeNetworkCallToNumbersApi
 
 function updateCatFact(response_text) {
-  /*var label2 = document.getElementById("result-line-2");
-  label2.innerHTML = response;
-
-  // dynamic add - dynamically usng JS
-  // to create & add elements to the DOM
-  */
-  // creating new label element
-  /*
-  label_item = document.createElement("label"); // "label" is a class name
-  label_item.setAttribute("id", "dynamic-label-1");
-  label_item.setAttribute("style", "color: blue; font-size: 10px");
-
-  var item_text = document.createTextNode(response);
-  label_item.appendChild(item_text);
-
-  // option 1: attach directly to body
-  document.body.appendChild(label_item);
-*/
-  // option 2: control where the new item is attached
 
   var response_json = JSON.parse(response_text);
   var cat_fact = response_json["fact"];
@@ -94,7 +77,7 @@ function updateCatFact(response_text) {
   label_item = document.createElement("label"); // "label" is a class name
   label_item.setAttribute("id", "dynamic-label-1");
   label_item.setAttribute("style", "text-align: center");
-  var item_text = document.createTextNode(cat_fact);
+  var item_text = document.createTextNode("\n" + cat_fact);
   label_item.appendChild(item_text);
 
   var response_div = document.getElementById("response-div");
